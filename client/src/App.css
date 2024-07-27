@@ -63,6 +63,9 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.deletepost{
-  background-color: black;
+.deleteIcon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  float: right; /* Align to the right */
+  margin-left: 10px; /* Add some space from the text */
 }

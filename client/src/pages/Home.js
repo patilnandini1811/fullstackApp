@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import deleteIcon from "../assets/deleteimage.png";
 
 function Home() {
   const [listOfPosts, setListOfPosts] = useState([]);
@@ -16,6 +17,17 @@ function Home() {
       });
   }, []);
 
+  const deletePost = (id) => {
+    axios.delete(`http://localhost:3001/posts/${id}`)
+      .then((response) => {
+        setListOfPosts(listOfPosts.filter(post => post.id !== id));
+        alert("Post deleted successfully!");
+      })
+      .catch((error) => {
+        console.error("There was an error deleting the post!", error);
+      });
+  };
+
   return (
     <div>
       {listOfPosts.length > 0 ? (
@@ -24,9 +36,15 @@ function Home() {
             <div className="post" key={key}>
               <div className="title"> {value.title} </div>
               <div className="body">{value.postText}</div>
-              <div className="footer">{value.userName}</div>
-              <div className="deletepost" button ="Delete"></div>
-          </div>
+              <div className="footer"> {value.userName} 
+            
+            <img
+            src={deleteIcon}
+            alt="Delete"
+            className="deleteIcon"
+            onClick={() => deletePost(value.id)}
+            style={{ cursor: "pointer", marginLeft: "10px" }} /></div>
+             </div>
           );
         })
       ) : (
