@@ -5,6 +5,7 @@ import "./CreatePost.css";
 import axios from 'axios';
 
 function CreatePost() {
+
   const initialValues = {
     title: "",
     postText: "",
@@ -20,6 +21,7 @@ function CreatePost() {
   const onSubmit = async (data, { resetForm }) => {
     try {
       const response = await axios.post("http://localhost:3001/posts", data);
+
       console.log("Post created:", response.data);
       alert("Post created successfully!");
       resetForm();
@@ -28,6 +30,8 @@ function CreatePost() {
       alert("Failed to create post. Please try again.");
     }
   };
+
+
 
   return (
     <div className='createPostPage'>
