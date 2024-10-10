@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# dotenv environment variables file (if used)
+.env
+
+# Debugging and caching
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.bak
+*.vspscc
