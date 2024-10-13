@@ -35,6 +35,7 @@ function Home() {
     <div>
       {listOfPosts.length > 0 ? (
         listOfPosts.map((value, key) => {
+          key={key}
           return (
             <div className="post" onClick={() => { navigate(`/post/${value.id}`) }}>
               <div className="title"> {value.title} </div>
